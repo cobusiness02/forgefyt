@@ -6,7 +6,7 @@ const morgan = require('morgan');
 const rateLimit = require('express-rate-limit');
 require('dotenv').config();
 
-const authRoutes = require('./routes/auth');
+const { router: authRoutes } = require('./routes/auth');
 const coachRoutes = require('./routes/coaches');
 const clientRoutes = require('./routes/clients');
 const workoutRoutes = require('./routes/workouts');
