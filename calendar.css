@@ -1,0 +1,427 @@
+/* Calendar Specific Styles */
+
+.calendar-main {
+    background-color: #f8f9fa;
+    min-height: calc(100vh - 120px);
+    padding: 2rem 0;
+}
+
+/* Calendar Controls */
+.calendar-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.calendar-nav {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.nav-btn {
+    background: #667eea;
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-btn:hover {
+    background: #5a6fd8;
+}
+
+#currentMonth {
+    margin: 0;
+    color: #333;
+    font-size: 1.5rem;
+    min-width: 200px;
+    text-align: center;
+}
+
+.calendar-actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.client-selector {
+    padding: 0.75rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: white;
+    font-size: 0.9rem;
+    min-width: 150px;
+}
+
+/* Calendar Grid */
+.calendar-container {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-rows: auto 1fr;
+}
+
+.calendar-header {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    background: #667eea;
+    color: white;
+}
+
+.day-header {
+    padding: 1rem;
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+}
+
+.calendar-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 1px;
+    background: #e9ecef;
+}
+
+.calendar-day {
+    background: white;
+    min-height: 120px;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.calendar-day:hover {
+    background: #f8f9ff;
+}
+
+.calendar-day.today {
+    background: #fff3cd;
+}
+
+.calendar-day.today:hover {
+    background: #ffeaa7;
+}
+
+.calendar-day.empty {
+    background: #f8f9fa;
+    cursor: default;
+}
+
+.calendar-day.empty:hover {
+    background: #f8f9fa;
+}
+
+.day-number {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.day-workouts {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.workout-indicator {
+    background: #e9ecef;
+    border-radius: 4px;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+    border-left: 3px solid #6c757d;
+    overflow: hidden;
+}
+
+.workout-indicator.strength {
+    background: #e3f2fd;
+    border-left-color: #2196f3;
+    color: #1565c0;
+}
+
+.workout-indicator.cardio {
+    background: #f3e5f5;
+    border-left-color: #9c27b0;
+    color: #7b1fa2;
+}
+
+.workout-indicator.flexibility {
+    background: #e8f5e8;
+    border-left-color: #4caf50;
+    color: #2e7d32;
+}
+
+.workout-indicator.hiit {
+    background: #fff3e0;
+    border-left-color: #ff9800;
+    color: #ef6c00;
+}
+
+.workout-indicator.endurance {
+    background: #e0f2f1;
+    border-left-color: #009688;
+    color: #00695c;
+}
+
+.workout-indicator.sports {
+    background: #f1f8e9;
+    border-left-color: #8bc34a;
+    color: #558b2f;
+}
+
+.workout-indicator.recovery {
+    background: #fce4ec;
+    border-left-color: #e91e63;
+    color: #c2185b;
+}
+
+.workout-time {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.1rem;
+}
+
+.workout-client {
+    display: block;
+    opacity: 0.8;
+}
+
+/* Workouts Summary */
+.workouts-summary {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+    padding: 1.5rem;
+}
+
+.workouts-summary h3 {
+    margin: 0 0 1.5rem 0;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.workout-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.workout-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    transition: background-color 0.2s;
+}
+
+.workout-item:hover {
+    background: #e9ecef;
+}
+
+.workout-date {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 80px;
+    background: #667eea;
+    color: white;
+    padding: 0.75rem;
+    border-radius: 8px;
+}
+
+.workout-date .day {
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.workout-date .time {
+    font-size: 0.8rem;
+    opacity: 0.9;
+}
+
+.workout-details {
+    flex: 1;
+}
+
+.workout-details h4 {
+    margin: 0 0 0.25rem 0;
+    color: #333;
+}
+
+.workout-details p {
+    margin: 0 0 0.5rem 0;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.workout-type {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.workout-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.edit-workout-btn, .delete-workout-btn {
+    width: 35px;
+    height: 35px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.edit-workout-btn {
+    background: #3498db;
+    color: white;
+}
+
+.edit-workout-btn:hover {
+    background: #2980b9;
+}
+
+.delete-workout-btn {
+    background: #e74c3c;
+    color: white;
+}
+
+.delete-workout-btn:hover {
+    background: #c0392b;
+}
+
+/* Modal Enhancements for Calendar */
+.modal-content {
+    max-width: 700px;
+}
+
+/* Checkbox Styling */
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.checkbox-label input[type="checkbox"] {
+    width: auto;
+    margin: 0;
+}
+
+.checkmark {
+    font-weight: 500;
+}
+
+/* Form Enhancements */
+.form-group textarea {
+    font-family: inherit;
+    line-height: 1.5;
+}
+
+/* Responsive Calendar */
+@media (max-width: 768px) {
+    .calendar-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .calendar-nav {
+        justify-content: center;
+    }
+    
+    .calendar-actions {
+        justify-content: space-between;
+    }
+    
+    .calendar-day {
+        min-height: 80px;
+        padding: 0.25rem;
+    }
+    
+    .day-header {
+        padding: 0.5rem;
+        font-size: 0.8rem;
+    }
+    
+    .workout-indicator {
+        font-size: 0.65rem;
+        padding: 0.2rem 0.3rem;
+    }
+    
+    .workout-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .workout-actions {
+        align-self: stretch;
+        justify-content: flex-end;
+    }
+    
+    #currentMonth {
+        font-size: 1.2rem;
+        min-width: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .calendar-day {
+        min-height: 60px;
+    }
+    
+    .day-header {
+        padding: 0.25rem;
+        font-size: 0.7rem;
+    }
+    
+    .workout-indicator {
+        font-size: 0.6rem;
+        padding: 0.1rem 0.2rem;
+    }
+    
+    .workout-time, .workout-client {
+        display: none;
+    }
+    
+    .workout-indicator:after {
+        content: "●";
+        display: block;
+        text-align: center;
+        font-size: 0.8rem;
+    }
+}

@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - FitCoach Pro</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .login-container {
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .login-card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            padding: 40px 30px;
+            animation: slideUp 0.6s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .logo i {
+            color: #667eea;
+            font-size: 2.5rem;
+        }
+
+        .logo h1 {
+            color: #333;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .login-header p {
+            color: #666;
+            font-size: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+            font-size: 0.9rem;
+        }
+
+        .form-group label i {
+            margin-right: 8px;
+            color: #667eea;
+            width: 16px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e9ecef;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: #f8f9fa;
+            color: #333;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #667eea;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .form-group input::placeholder {
+            color: #aaa;
+        }
+
+        .password-toggle {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #666;
+            cursor: pointer;
+            font-size: 1rem;
+            padding: 5px;
+        }
+
+        .password-toggle:hover {
+            color: #667eea;
+        }
+
+        .form-options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            font-size: 0.9rem;
+        }
+
+        .remember-me {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+
+        .forgot-password {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .forgot-password:hover {
+            text-decoration: underline;
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .login-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .login-btn:disabled {
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+
+        .demo-section {
+            border-top: 1px solid #eee;
+            padding-top: 25px;
+            text-align: center;
+        }
+
+        .demo-section h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+
+        .demo-buttons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .demo-btn {
+            flex: 1;
+            padding: 12px;
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            color: #333;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .demo-btn:hover {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+            transform: translateY(-2px);
+        }
+
+        .signup-link {
+            color: #667eea;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .signup-link:hover {
+            text-decoration: underline;
+        }
+
+        .message {
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+        }
+
+        .message.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .message.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .message.info {
+            background: #cce7ff;
+            color: #004085;
+            border: 1px solid #b3d7ff;
+        }
+
+        @media (max-width: 480px) {
+            .login-container {
+                padding: 10px;
+            }
+            
+            .login-card {
+                padding: 30px 20px;
+            }
+            
+            .demo-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-card">
+            <div class="login-header">
+                <div class="logo">
+                    <i class="fas fa-dumbbell"></i>
+                    <h1>FitCoach Pro</h1>
+                </div>
+                <p>Sign in to your coaching platform</p>
+            </div>
+
+            <div id="messageContainer"></div>
+
+            <form id="loginForm" class="login-form">
+                <div class="form-group">
+                    <label for="email">
+                        <i class="fas fa-envelope"></i>
+                        Email Address
+                    </label>
+                    <input type="email" 
+                           id="email" 
+                           name="email" 
+                           required 
+                           placeholder="Enter your email"
+                           autocomplete="email">
+                </div>
+
+                <div class="form-group">
+                    <label for="password">
+                        <i class="fas fa-lock"></i>
+                        Password
+                    </label>
+                    <input type="password" 
+                           id="password" 
+                           name="password" 
+                           required 
+                           placeholder="Enter your password"
+                           autocomplete="current-password">
+                    <button type="button" class="password-toggle" onclick="togglePassword()">
+                        <i class="fas fa-eye" id="passwordIcon"></i>
+                    </button>
+                </div>
+
+                <div class="form-options">
+                    <label class="remember-me">
+                        <input type="checkbox" id="rememberMe" name="rememberMe">
+                        Remember me
+                    </label>
+                    <a href="#" class="forgot-password" onclick="showForgotPassword()">Forgot password?</a>
+                </div>
+
+                <button type="submit" class="login-btn" id="loginBtn">
+                    <i class="fas fa-sign-in-alt"></i>
+                    <span>Sign In</span>
+                </button>
+            </form>
+
+            <div class="demo-section">
+                <h3>Demo Accounts</h3>
+                <div class="demo-buttons">
+                    <button type="button" class="demo-btn" onclick="loginDemo('coach')">
+                        <i class="fas fa-user"></i>
+                        Login as Coach
+                    </button>
+                    <button type="button" class="demo-btn" onclick="loginDemo('admin')">
+                        <i class="fas fa-user-shield"></i>
+                        Login as Admin
+                    </button>
+                </div>
+                <p>Don't have an account? <a href="#" class="signup-link" onclick="showSignup()">Sign up here</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Global functions need to be available immediately
+        function togglePassword() {
+            const passwordField = document.getElementById('password');
+            const passwordIcon = document.getElementById('passwordIcon');
+            
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+                passwordIcon.className = 'fas fa-eye-slash';
+            } else {
+                passwordField.type = 'password';
+                passwordIcon.className = 'fas fa-eye';
+            }
+        }
+
+        function loginDemo(role) {
+            const emailField = document.getElementById('email');
+            const passwordField = document.getElementById('password');
+            
+            if (role === 'coach') {
+                emailField.value = 'coach@fitcoachpro.com';
+                passwordField.value = 'coach123';
+            } else if (role === 'admin') {
+                emailField.value = 'admin@fitcoachpro.com';
+                passwordField.value = 'admin123';
+            }
+            
+            // Trigger form submission
+            document.getElementById('loginForm').dispatchEvent(new Event('submit'));
+        }
+
+        function showMessage(message, type) {
+            const container = document.getElementById('messageContainer');
+            
+            // Clear existing messages
+            container.innerHTML = '';
+            
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${type}`;
+            messageDiv.innerHTML = `
+                <i class="fas ${type === 'success' ? 'fa-check-circle' : type === 'error' ? 'fa-exclamation-circle' : 'fa-info-circle'}"></i>
+                <span>${message}</span>
+            `;
+            
+            container.appendChild(messageDiv);
+            
+            // Auto-remove after 5 seconds
+            setTimeout(() => {
+                if (messageDiv.parentNode) {
+                    messageDiv.remove();
+                }
+            }, 5000);
+        }
+
+        function showForgotPassword() {
+            showMessage('Password reset is not available for demo accounts. Please use the demo credentials.', 'info');
+        }
+
+        function showSignup() {
+            showMessage('Registration is currently disabled. Please use demo accounts or contact administrator.', 'info');
+        }
+
+        // Check if already logged in when page loads
+        window.addEventListener('load', () => {
+            const user = JSON.parse(localStorage.getItem('fitcoach_user') || 'null');
+            if (user && user.isLoggedIn) {
+                window.location.href = 'dashboard-home.html';
+                return;
+            }
+        });
+
+        // Initialize form when DOM is ready
+        document.addEventListener('DOMContentLoaded', function() {
+            const loginForm = document.getElementById('loginForm');
+            
+            // Handle form submission
+            loginForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                const email = document.getElementById('email').value.trim();
+                const password = document.getElementById('password').value;
+                const submitBtn = document.getElementById('loginBtn');
+                const btnIcon = submitBtn.querySelector('i');
+                const btnText = submitBtn.querySelector('span');
+                
+                // Validation
+                if (!email || !password) {
+                    showMessage('Please enter both email and password.', 'error');
+                    return;
+                }
+                
+                // Show loading state
+                submitBtn.disabled = true;
+                btnIcon.className = 'fas fa-spinner fa-spin';
+                btnText.textContent = 'Signing In...';
+                
+                try {
+                    // Simulate API call delay
+                    await new Promise(resolve => setTimeout(resolve, 1000));
+                    
+                    // Check demo credentials
+                    const validCredentials = [
+                        { email: 'coach@fitcoachpro.com', password: 'coach123', role: 'coach', name: 'John Coach' },
+                        { email: 'admin@fitcoachpro.com', password: 'admin123', role: 'admin', name: 'Admin User' }
+                    ];
+                    
+                    const user = validCredentials.find(cred => 
+                        cred.email.toLowerCase() === email.toLowerCase() && cred.password === password
+                    );
+                    
+                    if (!user) {
+                        throw new Error('Invalid email or password. Please use demo accounts: coach@fitcoachpro.com/coach123 or admin@fitcoachpro.com/admin123');
+                    }
+                    
+                    // Store user data
+                    localStorage.setItem('fitcoach_user', JSON.stringify({
+                        email: user.email,
+                        role: user.role,
+                        name: user.name,
+                        isLoggedIn: true,
+                        loginTime: new Date().toISOString()
+                    }));
+                    
+                    // Show success message
+                    showMessage('Login successful! Redirecting to dashboard...', 'success');
+                    
+                    // Redirect to dashboard
+                    setTimeout(() => {
+                        window.location.href = 'dashboard-home.html';
+                    }, 1500);
+                    
+                } catch (error) {
+                    // Show error message
+                    showMessage(error.message || 'Login failed. Please try again.', 'error');
+                    
+                    // Reset button state
+                    submitBtn.disabled = false;
+                    btnIcon.className = 'fas fa-sign-in-alt';
+                    btnText.textContent = 'Sign In';
+                }
+            });
+
+            // Make inputs fully interactive
+            const emailInput = document.getElementById('email');
+            const passwordInput = document.getElementById('password');
+            
+            // Ensure inputs are clickable and focusable
+            [emailInput, passwordInput].forEach(input => {
+                input.addEventListener('click', function() {
+                    this.focus();
+                    this.select();
+                });
+                
+                input.addEventListener('focus', function() {
+                    this.style.borderColor = '#667eea';
+                });
+                
+                input.addEventListener('blur', function() {
+                    this.style.borderColor = '#e9ecef';
+                });
+            });
+
+            // Add demo button hover effects
+            document.querySelectorAll('.demo-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 150);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

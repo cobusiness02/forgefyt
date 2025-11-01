@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitCoach Pro - Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        // Authentication check - must be logged in to access this page
+        (function() {
+            const user = JSON.parse(localStorage.getItem('fitcoach_user') || 'null');
+            if (!user || !user.isLoggedIn) {
+                window.location.href = 'index.html';
+                return;
+            }
+        })();
+    </script>
+    <script src="auth.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><i class="fas fa-dumbbell"></i> FitCoach Pro</h1>
+            <nav>
+                <ul>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#" class="logout-btn btn btn-secondary">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <!-- Hero Section -->
+            <section class="hero-section">
+                <div class="hero-content">
+                    <h2>Welcome to Your Coaching Platform</h2>
+                    <p>Manage your clients, track their progress, and grow your coaching business with our comprehensive platform.</p>
+                    <div class="hero-buttons">
+                        <a href="coach-dashboard.html" class="btn btn-primary btn-large">
+                            <i class="fas fa-chart-line"></i> Access Dashboard
+                        </a>
+                        <a href="#features" class="btn btn-secondary btn-large">
+                            <i class="fas fa-info-circle"></i> Explore Features
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <i class="fas fa-users-cog hero-icon"></i>
+                </div>
+            </section>
+
+            <!-- Features Section -->
+            <section id="features" class="features-section">
+                <h2>Platform Features</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-users"></i>
+                        <h3>Client Management</h3>
+                        <p>Organize and manage all your clients in one place. Track their information, goals, and progress.</p>
+                        <a href="client-management.html" class="feature-link">Manage Clients →</a>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-chart-bar"></i>
+                        <h3>Progress Tracking</h3>
+                        <p>Monitor client progress with detailed analytics and visual progress indicators.</p>
+                        <a href="coach-dashboard.html" class="feature-link">View Dashboard →</a>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-calendar-alt"></i>
+                        <h3>Session Scheduling</h3>
+                        <p>Schedule and manage training sessions with an integrated calendar system and workout planner.</p>
+                        <a href="workout-calendar.html" class="feature-link">Schedule Sessions →</a>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-calendar-alt"></i>
+                        <h3>Workout Calendar</h3>
+                        <p>Schedule and assign workouts to specific days for each client with our interactive calendar.</p>
+                        <a href="workout-calendar.html" class="feature-link">Open Calendar →</a>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-trophy"></i>
+                        <h3>Goal Setting</h3>
+                        <p>Set and track personalized fitness goals for each of your clients.</p>
+                        <a href="client-management.html" class="feature-link">Set Goals →</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quick Access -->
+            <section class="quick-access-section">
+                <h2>Quick Access</h2>
+                <div class="dashboard-links">
+                    <div class="dashboard-link-card">
+                        <h3><i class="fas fa-chart-line"></i> Main Dashboard</h3>
+                        <p>Overview of your coaching business, recent activity, and today's schedule</p>
+                        <a href="coach-dashboard.html" class="btn btn-primary">Access Dashboard</a>
+                    </div>
+                    
+                    <div class="dashboard-link-card">
+                        <h3><i class="fas fa-calendar-plus"></i> Workout Calendar</h3>
+                        <p>Schedule workouts and manage training sessions for all your clients</p>
+                        <a href="workout-calendar.html" class="btn btn-success">Open Calendar</a>
+                    </div>
+                    
+                    <div class="dashboard-link-card">
+                        <h3><i class="fas fa-users-cog"></i> Client Management</h3>
+                        <p>Edit client information, set goals, and manage detailed client profiles</p>
+                        <a href="client-management.html" class="btn btn-secondary">Manage Clients</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 FitCoach Pro. Empowering fitness professionals worldwide.</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitCoach Pro - Coach Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        // Authentication check - must be logged in to access this page
+        (function() {
+            const user = JSON.parse(localStorage.getItem('fitcoach_user') || 'null');
+            if (!user || !user.isLoggedIn) {
+                window.location.href = 'index.html';
+                return;
+            }
+        })();
+    </script>
+    <script src="auth.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="dashboard-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="header-left">
+                    <a href="INDEX.HTML" class="back-btn">
+                        <i class="fas fa-arrow-left"></i> Home
+                    </a>
+                    <h1><i class="fas fa-chart-line"></i> Coach Dashboard</h1>
+                </div>
+                <div class="user-info">
+                    <span class="user-name">Welcome back, Coach Smith</span>
+                    <a href="client-management.html" class="manage-clients-btn">
+                        <i class="fas fa-users-cog"></i> Manage Clients
+                    </a>
+                    <a href="#" class="logout-btn">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </a>
+                    <img src="https://via.placeholder.com/40x40" alt="Profile" class="profile-pic">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Dashboard Content -->
+    <main class="dashboard-main">
+        <div class="container">
+            <!-- Stats Cards -->
+            <section class="stats-section">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Total Clients</h3>
+                            <span class="stat-number">24</span>
+                            <span class="stat-change positive">+3 this week</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Sessions This Week</h3>
+                            <span class="stat-number">18</span>
+                            <span class="stat-change positive">+2 from last week</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Revenue This Month</h3>
+                            <span class="stat-number">$3,240</span>
+                            <span class="stat-change positive">+15%</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Goals Achieved</h3>
+                            <span class="stat-number">67%</span>
+                            <span class="stat-change neutral">Same as last month</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Dashboard Grid -->
+            <div class="dashboard-grid">
+                <!-- Today's Schedule -->
+                <section class="dashboard-card schedule-card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-calendar-day"></i> Today's Schedule</h2>
+                        <span class="date">November 1, 2025</span>
+                    </div>
+                    <div class="card-content">
+                        <div class="session-item">
+                            <div class="session-time">9:00 AM</div>
+                            <div class="session-details">
+                                <h4>Sarah Johnson</h4>
+                                <p>Personal Training - Weight Loss</p>
+                                <span class="session-status upcoming">Upcoming</span>
+                            </div>
+                        </div>
+                        <div class="session-item">
+                            <div class="session-time">10:30 AM</div>
+                            <div class="session-details">
+                                <h4>Mike Chen</h4>
+                                <p>Strength Training</p>
+                                <span class="session-status upcoming">Upcoming</span>
+                            </div>
+                        </div>
+                        <div class="session-item">
+                            <div class="session-time">2:00 PM</div>
+                            <div class="session-details">
+                                <h4>Emily Davis</h4>
+                                <p>Cardio & Flexibility</p>
+                                <span class="session-status completed">Completed</span>
+                            </div>
+                        </div>
+                        <div class="session-item">
+                            <div class="session-time">4:00 PM</div>
+                            <div class="session-details">
+                                <h4>Team Meeting</h4>
+                                <p>Weekly progress review</p>
+                                <span class="session-status upcoming">Upcoming</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Recent Activity -->
+                <section class="dashboard-card activity-card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-bell"></i> Recent Activity</h2>
+                    </div>
+                    <div class="card-content">
+                        <div class="activity-item">
+                            <div class="activity-icon">
+                                <i class="fas fa-user-plus"></i>
+                            </div>
+                            <div class="activity-details">
+                                <p><strong>New client registered:</strong> Alex Thompson</p>
+                                <span class="activity-time">2 hours ago</span>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="activity-details">
+                                <p><strong>5-star review</strong> from Maria Garcia</p>
+                                <span class="activity-time">4 hours ago</span>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="activity-details">
+                                <p><strong>Goal achieved:</strong> John Smith lost 10 lbs</p>
+                                <span class="activity-time">1 day ago</span>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon">
+                                <i class="fas fa-calendar-plus"></i>
+                            </div>
+                            <div class="activity-details">
+                                <p><strong>Session booked:</strong> Lisa Brown for tomorrow</p>
+                                <span class="activity-time">2 days ago</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Client Progress -->
+                <section class="dashboard-card progress-card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-chart-bar"></i> Client Progress</h2>
+                    </div>
+                    <div class="card-content">
+                        <div class="progress-item">
+                            <div class="client-info">
+                                <h4>Sarah Johnson</h4>
+                                <span>Weight Loss Goal</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 75%"></div>
+                            </div>
+                            <span class="progress-percent">75%</span>
+                        </div>
+                        <div class="progress-item">
+                            <div class="client-info">
+                                <h4>Mike Chen</h4>
+                                <span>Muscle Gain</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 60%"></div>
+                            </div>
+                            <span class="progress-percent">60%</span>
+                        </div>
+                        <div class="progress-item">
+                            <div class="client-info">
+                                <h4>Emily Davis</h4>
+                                <span>Endurance Training</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 90%"></div>
+                            </div>
+                            <span class="progress-percent">90%</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Quick Actions -->
+                <section class="dashboard-card actions-card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-bolt"></i> Quick Actions</h2>
+                    </div>
+                    <div class="card-content">
+                        <div class="action-buttons">
+                            <button class="action-btn" onclick="window.location.href='client-management.html'">
+                                <i class="fas fa-users-cog"></i>
+                                Manage Clients
+                            </button>
+                            <button class="action-btn" onclick="window.location.href='workout-calendar.html'">
+                                <i class="fas fa-calendar-plus"></i>
+                                Workout Calendar
+                            </button>
+                            <button class="action-btn">
+                                <i class="fas fa-edit"></i>
+                                Update Progress
+                            </button>
+                            <button class="action-btn">
+                                <i class="fas fa-file-invoice-dollar"></i>
+                                Generate Report
+                            </button>
+                            <button class="action-btn">
+                                <i class="fas fa-message"></i>
+                                Send Message
+                            </button>
+                            <button class="action-btn">
+                                <i class="fas fa-cog"></i>
+                                Settings
+                            </button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Coach Dashboard. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
