@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/cobusiness02/forgefyt/issues"
   },
-  "homepage": "https://github.com/cobusiness02/forgefyt#readme"
+  "homepage": "https://github.com/cobusiness02/forgefyt#readme",
+  "dependencies": {
+    "multer": "^1.4.4"
+  }
 }
